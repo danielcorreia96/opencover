@@ -420,10 +420,10 @@ void CCodeCoverage::InstrumentMethod(ModuleID moduleId, Instrumentation::Method&
             CoverageInstrumentation::InsertFunctionCall(instructions, pvsig, (FPTR)pt, seqPoints[0].UniqueId);
         if (method.IsInstrumented(0, instructions)) return;
   
-        CoverageInstrumentation::AddBranchCoverage([pvsig, pt](InstructionList& brinstructions, ULONG uniqueId)->Instruction*
-        {
-            return CoverageInstrumentation::InsertFunctionCall(brinstructions, pvsig, (FPTR)pt, uniqueId);
-        }, method, brPoints, seqPoints);
+        // CoverageInstrumentation::AddBranchCoverage([pvsig, pt](InstructionList& brinstructions, ULONG uniqueId)->Instruction*
+        // {
+        //     return CoverageInstrumentation::InsertFunctionCall(brinstructions, pvsig, (FPTR)pt, uniqueId);
+        // }, method, brPoints, seqPoints);
 
         CoverageInstrumentation::AddSequenceCoverage([pvsig, pt](InstructionList& seqinstructions, ULONG uniqueId)->Instruction*
         {
@@ -439,10 +439,10 @@ void CCodeCoverage::InstrumentMethod(ModuleID moduleId, Instrumentation::Method&
             CoverageInstrumentation::InsertInjectedMethod(instructions, injectedVisitedMethod, seqPoints[0].UniqueId);
         if (method.IsInstrumented(0, instructions)) return;
   
-        CoverageInstrumentation::AddBranchCoverage([injectedVisitedMethod](InstructionList& brinstructions, ULONG uniqueId)->Instruction*
-        {
-            return CoverageInstrumentation::InsertInjectedMethod(brinstructions, injectedVisitedMethod, uniqueId);
-        }, method, brPoints, seqPoints);
+        // CoverageInstrumentation::AddBranchCoverage([injectedVisitedMethod](InstructionList& brinstructions, ULONG uniqueId)->Instruction*
+        // {
+        //     return CoverageInstrumentation::InsertInjectedMethod(brinstructions, injectedVisitedMethod, uniqueId);
+        // }, method, brPoints, seqPoints);
         
         CoverageInstrumentation::AddSequenceCoverage([injectedVisitedMethod](InstructionList& seqinstructions, ULONG uniqueId)->Instruction*
         {

@@ -47,8 +47,7 @@
 
   <target name="build-environment" depends="get-os-version, create-snk, prepare-environment, get-version-number, generate-release-notes, prepare-sample-project" />
 
-  <target name="rebuild" depends="build-environment, clean, build, test" >
-    <call target="test-cpp" if="${version::get-major(version::parse(machine.version))==6}" />
+  <target name="rebuild" depends="build-environment, clean, build" >
   </target>
 
   <target name="teamcity-build" depends="build-environment, clean" >
@@ -65,7 +64,7 @@
   
   <target name="generate-coverage-files" depends="dogfood-release, transformcppcoverage, update-coveralls" />
   
-  <target name="create-release" depends="clean-all, build-environment, build-release-platforms, test, test-cpp, create-zip-package">
+  <target name="create-release" depends="clean-all, build-environment, build-release-platforms, create-zip-package">
     <call target="copy-artefacts" />
     <call target="chocolatey-package" />
     <call target="chocolatey-package-portable" />
@@ -142,7 +141,7 @@
     </exec>        
   </target>
   
-  <target name="quick-build-release" depends="clean, build-environment, build-release-platforms, test, test-cpp" />
+  <target name="quick-build-release" depends="clean, build-environment, build-release-platforms" />
   
   <target name="set-rc-property" >
     <property name="buildnumber.ci" value="-rc" />

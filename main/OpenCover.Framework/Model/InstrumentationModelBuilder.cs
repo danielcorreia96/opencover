@@ -105,7 +105,7 @@ namespace OpenCover.Framework.Model
                     if (method.SequencePoints.Any())
                     {
                         method.MethodPoint = method.SequencePoints.FirstOrDefault(pt => pt.Offset == 0);
-                        method.BranchPoints = _symbolManager.GetBranchPointsForToken(method.MetadataToken);
+                        // method.BranchPoints = _symbolManager.GetBranchPointsForToken(method.MetadataToken);
                     }
                     method.MethodPoint = method.MethodPoint ?? new InstrumentationPoint();
                 }
