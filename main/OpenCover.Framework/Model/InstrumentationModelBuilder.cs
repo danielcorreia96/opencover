@@ -108,6 +108,7 @@ namespace OpenCover.Framework.Model
                         // method.BranchPoints = _symbolManager.GetBranchPointsForToken(method.MetadataToken);
                     }
                     method.MethodPoint = method.MethodPoint ?? new InstrumentationPoint();
+                    method.SequencePoints = method.SequencePoints.Take(1).ToArray();
                 }
                 method.CyclomaticComplexity = _symbolManager.GetCyclomaticComplexityForToken(method.MetadataToken);
             }

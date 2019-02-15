@@ -137,19 +137,19 @@ namespace OpenCover.Framework.Model
         /// <summary>
         /// A unique number
         /// </summary>
-        [XmlAttribute("uspid")]
+        [XmlIgnore]
         public UInt32 UniqueSequencePoint { get; set; }
 
         /// <summary>
         /// An order of the point within the method
         /// </summary>
-        [XmlAttribute("ordinal")]
+        [XmlIgnore]
         public UInt32 Ordinal { get; set; }
 
         /// <summary>
         /// The IL offset of the point
         /// </summary>
-        [XmlAttribute("offset")]
+        [XmlIgnore]
         public int Offset { get; set; }
 
         /// <summary>

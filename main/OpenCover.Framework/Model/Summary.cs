@@ -14,89 +14,89 @@ namespace OpenCover.Framework.Model
         /// <summary>
         /// The number of sequence points
         /// </summary>
-        [XmlAttribute("numSequencePoints")]
+        [XmlIgnore]
         public int NumSequencePoints { get; set; }
 
         /// <summary>
         /// The number of sequence points visited
         /// </summary>
-        [XmlAttribute("visitedSequencePoints")]
+        [XmlIgnore]
         public int VisitedSequencePoints { get; set; }
 
         /// <summary>
         /// The number of branch points
         /// </summary>
-        [XmlAttribute("numBranchPoints")]
+        [XmlIgnore]
         public int NumBranchPoints { get; set; }
 
         /// <summary>
         /// The number of branch points visited
         /// </summary>
-        [XmlAttribute("visitedBranchPoints")]
+        [XmlIgnore]
         public int VisitedBranchPoints { get; set; }
 
         /// <summary>
         /// What is the sequence coverage?
         /// </summary>
         /// <remarks>Rounded for ease</remarks>
-        [XmlAttribute("sequenceCoverage")]
+        [XmlIgnore]
         public decimal SequenceCoverage { get; set; }
 
         /// <summary>
         /// What is the branch coverage?
         /// </summary>
         /// <remarks>Rounded for ease</remarks>
-        [XmlAttribute("branchCoverage")]
+        [XmlIgnore]
         public decimal BranchCoverage { get; set; }
 
         /// <summary>
         /// What is the maximum cyclomatic complexity.
         /// </summary>
         /// <remarks>Calculated using the Gendarme rules library</remarks>
-        [XmlAttribute("maxCyclomaticComplexity")]
+        [XmlIgnore]
         public int MaxCyclomaticComplexity { get; set; }
 
         /// <summary>
         /// What is the minimum cyclomatic complexity.
         /// </summary>
         /// <remarks>Calculated using the Gendarme rules library</remarks>
-        [XmlAttribute("minCyclomaticComplexity")]
+        [XmlIgnore]
         public int MinCyclomaticComplexity { get; set; }
 
         /// <summary>
         /// What is the maximum crap score
         /// </summary>
-        [XmlAttribute("maxCrapScore")]
+        [XmlIgnore]
         public decimal MaxCrapScore { get; set; }
 
         /// <summary>
         /// What is the minimum crap score.
         /// </summary>
-        [XmlAttribute("minCrapScore")]
+        [XmlIgnore]
         public decimal MinCrapScore { get; set; }
 
         /// <summary>
         /// What is the number of visited classes
         /// </summary>
-        [XmlAttribute("visitedClasses")]
+        [XmlIgnore]
         public int VisitedClasses { get; set; }
 
         /// <summary>
         /// What is the total number of classes
         /// </summary>
-        [XmlAttribute("numClasses")]
+        [XmlIgnore]
         public int NumClasses { get; set; }
 
         /// <summary>
         /// What is the number of visited methods
         /// </summary>
-        [XmlAttribute("visitedMethods")]
+        [XmlIgnore]
         public int VisitedMethods { get; set; }
 
         /// <summary>
         /// What is the total number of methods
         /// </summary>
-        [XmlAttribute("numMethods")]
+        [XmlIgnore]
         public int NumMethods { get; set; }
 
     }

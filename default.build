@@ -71,7 +71,6 @@
     <call target="nuget-package" />
     <call target="set-rc-property" />
     <call target="nuget-package" />
-    <call target="test-bdd" />
     <call target="generate-coverage-files" />
   </target>
   
