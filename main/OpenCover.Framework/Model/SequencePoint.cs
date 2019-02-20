@@ -18,25 +18,25 @@ namespace OpenCover.Framework.Model
         /// <summary>
         /// The start line of the sequence point
         /// </summary>
-        [XmlAttribute("sl")]
+        [XmlIgnore]
         public int StartLine { get; set; }
 
         /// <summary>
         /// The start column of the sequence point
         /// </summary>
-        [XmlAttribute("sc")]
+        [XmlIgnore]
         public int StartColumn { get; set; }
 
         /// <summary>
         /// The end line of the sequence point
         /// </summary>
-        [XmlAttribute("el")]
+        [XmlIgnore]
         public int EndLine { get; set; }
 
         /// <summary>
         /// The end column of the sequence point
         /// </summary>
-        [XmlAttribute("ec")]
+        [XmlIgnore]
         public int EndColumn { get; set; }
 
         /// <summary>
@@ -45,25 +45,25 @@ namespace OpenCover.Framework.Model
         /// <summary>
         /// The number of branch exits
         /// </summary>
-        [XmlAttribute("bec")]
+        [XmlIgnore]
         public int BranchExitsCount { get; set; }
         
         /// <summary>
         /// Visit count of merged branches 
         /// </summary>
-        [XmlAttribute("bev")]
+        [XmlIgnore]
         public int BranchExitsVisit { get; set; }
 
         /// <summary>
         /// The file associated with the supplied startline 
         /// </summary>
-        [XmlAttribute("fileid")]
+        [XmlIgnore]
         public uint FileId { get; set; }
 
         /// <summary>
         /// The url to the document if an entry was not mapped to an id
         /// </summary>
-        [XmlAttribute("url")]
+        [XmlIgnore]
         public string Document { get; set; }
         
         internal List<BranchPoint> BranchPoints {

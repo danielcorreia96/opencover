@@ -42,7 +42,7 @@ namespace OpenCover.Framework.Model
         /// <summary>
         /// The MetadataToken used to identify this entity within the assembly
         /// </summary>
-        [XmlAttribute("token")]
+        [XmlIgnore]
         public int MetadataToken { get; set; }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace OpenCover.Framework.Model
         /// <summary>
         /// The reason/plugin why the method is being tracked
         /// </summary>
-        [XmlAttribute("strategy")]
+        [XmlIgnore]
         public string Strategy { get; set; }
 
     }

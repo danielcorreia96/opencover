@@ -1,3 +1,5 @@
+using System.Xml.Serialization;
+
 namespace OpenCover.Framework.Model
 {
     /// <summary>
@@ -17,6 +19,7 @@ namespace OpenCover.Framework.Model
         /// <summary>
         /// A Summary of results for a entity
         /// </summary>
+        [XmlIgnore]
         public Summary Summary { get; set; }
 
         /// <summary>

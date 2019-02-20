@@ -5,6 +5,7 @@
 //
 
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
@@ -53,6 +54,11 @@ namespace OpenCover.Framework.Model
         /// The classes that make up the module
         /// </summary>
         public Class[] Classes { get; set; }
+
+        public bool ShouldSerializeClasses() {
+            this.Classes = this.Classes.Where(c => c.ShouldSerializeMethods()).ToArray();
+            return !ModuleName.Contains("Tests");
+        }
 
         /// <summary>
         /// Methods that are being tracked i.e. test methods

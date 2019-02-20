@@ -105,10 +105,11 @@ namespace OpenCover.Framework.Model
                     if (method.SequencePoints.Maybe(_ => _.Any()))
                     {
                         method.MethodPoint = method.SequencePoints.FirstOrDefault(pt => pt.Offset == 0);
-                        method.BranchPoints = _symbolManager.GetBranchPointsForToken(method.MetadataToken);
+                        // method.BranchPoints = _symbolManager.GetBranchPointsForToken(method.MetadataToken);
                     }
                     method.MethodPoint = method.MethodPoint ?? new InstrumentationPoint();
-                    method.BranchPoints = method.BranchPoints ?? new BranchPoint[0];
+                    // method.BranchPoints = method.BranchPoints ?? new BranchPoint[0];
+                    method.SequencePoints = method.SequencePoints.Take(1).ToArray();
                 }
                 method.CyclomaticComplexity = _symbolManager.GetCyclomaticComplexityForToken(method.MetadataToken);
             }

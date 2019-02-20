@@ -16,12 +16,19 @@ namespace CoverageInstrumentation
     inline void AddSequenceCoverage(IM instrumentMethod, Method& method, std::vector<SequencePoint> points)
     {
         if (points.size() == 0) return;
-        for (auto it = points.begin(); it != points.end(); ++it)
-        {
-            InstructionList instructions;
-            instrumentMethod(instructions, (*it).UniqueId);
-            method.InsertInstructionsAtOriginalOffset((*it).Offset, instructions);
-        }
+        // for (auto it = points.begin(); it != points.end(); ++it)
+        // {
+	    //     Instrumentation::InstructionList instructions;
+        //     instrumentMethod(instructions, (*it).UniqueId);
+        //     method.InsertInstructionsAtOriginalOffset((*it).Offset, instructions);
+        //     break;
+        // }
+
+        auto it = points.begin();
+        InstructionList instructions;
+        instrumentMethod(instructions, (*it).UniqueId);
+        method.InsertInstructionsAtOriginalOffset((*it).Offset, instructions);
+
     }
 
     template<class IM>

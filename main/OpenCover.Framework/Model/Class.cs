@@ -37,6 +37,11 @@ namespace OpenCover.Framework.Model
         /// </summary>
         public Method[] Methods { get; set; }
 
+        public bool ShouldSerializeMethods(){
+            this.Methods = this.Methods.Where(x => x.CustomXmlValidation()).ToArray();
+            return Methods.Any(method => method.CustomXmlValidation());
+        }
+
         /// <summary>
         /// If a class was skipped by instrumentation, supply the reason why
         /// </summary>

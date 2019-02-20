@@ -18,6 +18,7 @@ namespace OpenCover.Framework.Model
         /// <summary>
         /// The MetadataToken used to identify this entity within the assembly
         /// </summary>
+        [XmlIgnore]
         public int MetadataToken { get; set; }
 
         /// <summary>
@@ -26,10 +27,22 @@ namespace OpenCover.Framework.Model
         [XmlElement("Name")]
         public string FullName { get; set; }
 
+        public bool ShouldSerializeFullName() {
+            return CustomXmlValidation();
+        }
+
         /// <summary>
         /// A reference to a file in the file collection (used to help visualisation)
         /// </summary>
         public FileRef FileRef { get; set; }
+
+        public bool ShouldSerializeFileRef() {
+            return CustomXmlValidation();
+        }
+
+        public bool CustomXmlValidation() {
+            return Visited && !IsGetter && !IsSetter && !IsConstructor && !IsGenerated;
+        }
 
         internal UInt32 FileRefUniqueId {
             get { return FileRef == null? 0 : FileRef.UniqueId; }
@@ -48,9 +61,14 @@ namespace OpenCover.Framework.Model
         }
         private SequencePoint[] _sequencePoints = new SequencePoint[0];
 
+        public bool ShouldSerializeSequencePoints() {
+            return false;
+        }
+
         /// <summary>
         /// A list of branch points that have been identified for this method
         /// </summary>
+        [XmlIgnore]
         public BranchPoint[] BranchPoints {
             get {
                 return _branchPoints;
@@ -66,6 +84,10 @@ namespace OpenCover.Framework.Model
         /// </summary>
         public InstrumentationPoint MethodPoint { get; set; }
 
+        public bool ShouldSerializeMethodPoint() {
+            return CustomXmlValidation();
+        }
+
         /// <summary>
         /// Has the method been visited
         /// </summary>
@@ -76,52 +98,52 @@ namespace OpenCover.Framework.Model
         /// What is the cyclomatic complexity of this method.
         /// </summary>
         /// <remarks>Calculated using the Gendarme rules library</remarks>
-        [XmlAttribute("cyclomaticComplexity")]
+        [XmlIgnore]
         public int CyclomaticComplexity { get; set; }
 
         /// <summary>
         /// What is the NPath complexity of this method.
         /// </summary>
         /// <remarks>Product of path branches (ie:path0=2;path1=3;path2=2 =&gt;2*3*2==12</remarks>
-        [XmlAttribute("nPathComplexity")]
+        [XmlIgnore]
         public int NPathComplexity { get; set; }
 
         /// <summary>
         /// What is the sequence coverage of this method
         /// </summary>
         /// <remarks>Rounded for ease</remarks>
-        [XmlAttribute("sequenceCoverage")]
+        [XmlIgnore]
         public decimal SequenceCoverage { get; set; }
 
         /// <summary>
         /// What is the branch coverage of this method
         /// </summary>
         /// <remarks>Rounded for ease</remarks>
-        [XmlAttribute("branchCoverage")]
+        [XmlIgnore]
         public decimal BranchCoverage { get; set; }
 
         /// <summary>
         /// Is this method a constructor
         /// </summary>
-        [XmlAttribute("isConstructor")]
+        [XmlIgnore]
         public bool IsConstructor { get; set; }
 
         /// <summary>
         /// Is this method static
         /// </summary>
-        [XmlAttribute("isStatic")]
+        [XmlIgnore]
         public bool IsStatic { get; set; }
 
         /// <summary>
         /// Is this method a property getter
         /// </summary>
-        [XmlAttribute("isGetter")]
+        [XmlIgnore]
         public bool IsGetter { get; set; }
         
         /// <summary>
         /// Is this method a property setter
         /// </summary>
-        [XmlAttribute("isSetter")]
+        [XmlIgnore]
         public bool IsSetter { get; set; }
 
         /// <summary>
