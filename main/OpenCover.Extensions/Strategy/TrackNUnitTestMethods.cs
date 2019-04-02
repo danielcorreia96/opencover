@@ -15,7 +15,10 @@ namespace OpenCover.Extensions.Strategy
             "NUnit.Framework.TestCaseAttribute",
             "NUnit.Framework.TheoryAttribute",
             "NUnitExtension.OutSystems.Framework.IterativeTestCaseAttribute",
-            "NUnitExtension.OutSystems.Framework.DashboardTestFixtureAttribute"
+            "NUnitExtension.OutSystems.Framework.DashboardTestFixtureAttribute",
+            "NUnitExtension.OutSystems.Framework.IDashboardTestFixture",
+            "OutSystems.PackageManager.UnitTests.TestBase",
+            "OutSystems.PackageManager.UnitTests.EnzymeTestBase",
         };
 
         public TrackNUnitTestMethods() : base(NUnitStrategyName, TrackedAttributeTypeNames)
