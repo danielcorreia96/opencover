@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Mono.Cecil;
 using OpenCover.Framework.Model;
@@ -40,7 +41,23 @@ namespace OpenCover.Extensions.Strategy
 
         public IEnumerable<TrackedMethod> GetTrackedMethods(IEnumerable<TypeDefinition> typeDefinitions)
         {
-            return GetTrackedMethodsByAttribute(typeDefinitions);
+            var allTypes = GetAllTypes(typeDefinitions);
+
+            return GetTrackedMethodsByAttribute(allTypes);
+        }
+
+        private static IEnumerable<TypeDefinition> GetAllTypes(IEnumerable<TypeDefinition> typeDefinitions)
+        {
+            var types = new List<TypeDefinition>();
+            foreach (var typeDefinition in typeDefinitions)
+            {
+                types.Add(typeDefinition);
+                if (typeDefinition.HasNestedTypes)
+                {
+                    types.AddRange(GetAllTypes(typeDefinition.NestedTypes));
+                }
+            }
+            return types;
         }
     }
 }
