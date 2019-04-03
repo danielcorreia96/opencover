@@ -57,7 +57,7 @@ namespace OpenCover.Framework.Model
 
         public bool ShouldSerializeClasses() {
             this.Classes = this.Classes.Where(c => c.ShouldSerializeMethods()).ToArray();
-            return !ModuleName.Contains("Tests");
+            return True;
         }
 
         /// <summary>
