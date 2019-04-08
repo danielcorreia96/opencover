@@ -41,7 +41,7 @@ namespace OpenCover.Framework.Model
         }
 
         public bool CustomXmlValidation() {
-            return !IsGetter && !IsSetter && !IsConstructor && !IsGenerated;
+            return true;
         }
 
         internal UInt32 FileRefUniqueId {

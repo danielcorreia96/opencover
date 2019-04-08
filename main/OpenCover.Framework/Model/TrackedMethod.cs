@@ -21,7 +21,7 @@ namespace OpenCover.Framework.Model
         /// <summary>
         /// The visit count
         /// </summary>
-        [XmlAttribute("vc")]
+        [XmlIgnore]
         public int VisitCount { get; set; }
 
     }
